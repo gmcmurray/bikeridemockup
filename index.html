@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      /* The Modal (background) */
+
+    </style>
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
+
+    <title>Bike Trail App</title>
+</head>
+<body>
+
+  <h1>Bike Trail App</h1>
+  <ul>
+    <li> 1. Enter City, MaxDistance, MinDistance - assume ride is within 7 days from entering</li>
+    <li> 2. Weather forecast rendered along with 7 day forecast</li>
+    <li> 3. List of trails provided in descending distance with url =>  User selects one, two ...</li>
+    <li> 4. User selects trail offline and clickin to url
+  </ul>
+  <h3>Trail Selections</h3>
+  <div style="display: flex;flex-direction: row;" >
+    <input type="text" class="center" name="City" id="citty"><p style="background-color: green;">City</p>
+    <input type="text" class="center" name="Searchrad" id="Searchrad"><p style="background-color: green;">SearchRadius-miles</p>
+    <input type="text" class="center" name="Maxdist" id="maxdist"><p style="background-color: green;">MaxRideDist-miles</p>
+    <input type="text" class="center" name="Mindist" id="mindist"><p style="background-color: green;">MinRideDist-miles</p>
+
+    <input type="button" id="subapp" value="Submit">
+  </div>
+
+
+  <h3>City Weather</h3>
+  <div class="row"  id="forecast">
+    <!--Drop in 5 cards for forecast -->
+</div>  
+
+    <!-- <button id="getfare"> Bike Trails </button> -->
+  <h1>Bike Trails</h1>
+    <div style="height:500px;width: 500px;">
+      <div id="CityTrailsContainer">
+        <ul id="CityTrails"></ul>
+      </div>
+    </div>
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>No trails meet your distance requirements</p>
+      </div>
+    
+    </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+  <script src="./assets/js/weatherjs.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
