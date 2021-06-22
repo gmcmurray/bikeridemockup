@@ -9,7 +9,7 @@ var getforecastweather = function (city) {
         if (response.ok) {
           response.json().then(function (data) {
             populateforecast(data, city);
-            gettrails(lon,lat);
+            gettrails(lon,lat,radius);
             return (console.log(data));
           });
         } else {

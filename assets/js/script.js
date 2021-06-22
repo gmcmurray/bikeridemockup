@@ -1,15 +1,15 @@
 var idd = [];
 var info = [];
 var data1;
-var city = $('#citty').val();
-var radius = parseInt($('#Searchrad').val());
-var maxdist = parseInt($('#Maxdist').val());;
-var mindist = parseInt($('#Mindist').val());;
+var city ;
 var lon;
 var lat;
 var idt = 0;
 var modal = $("#myModal");
 var span = document.getElementsByClassName("close")[0];
+var radius ;
+var maxdist  ;
+var mindist ;
 
 let regpat = /[#,/]/;
 
@@ -21,7 +21,11 @@ function checkinputs() {
 	return;
 }
 
-function gettrails(lon, lat) {
+function gettrails(lon, lat,radius) {
+	radius = parseInt($('#Searchrad').val());
+	maxdist = parseInt($('#maxdist').val());
+	mindist = parseInt($('#mindist').val());
+	console.log("rmm", radius,maxdist,mindist);
 	fetch(`https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lon=${lon}&lat=${lat}&radius=${radius}`, {
 		method: "GET",
 		headers: {
@@ -42,6 +46,7 @@ function gettrails(lon, lat) {
 		.catch(err => {
 			console.error(err);
 		});
+	}
 
 	function FilterandSort(data){
 		for (var x = 0; x < data.data.length; x++) {
@@ -57,7 +62,7 @@ function gettrails(lon, lat) {
 
 
 	function trailprocessing(data, maxdist, mindist) {
-		FilterandSort(data);
+		info=FilterandSort(data);
 		console.log(info.length)
 		console.log("info", info)
 		console.log("first", info[0][0], mindist, maxdist, "last", info[info.length - 1][0])
@@ -103,8 +108,11 @@ function gettrails(lon, lat) {
 		maxdist = parseFloat($('#maxdist').val());
 		mindist = parseFloat($('#mindist').val());
 		console.log(maxdist, mindist);
-		getforecastweather(city);
+		getforecastweather(city= $('#citty').val());
 	});
+
+
+
 
 
 // gettrails(lon, lat);
